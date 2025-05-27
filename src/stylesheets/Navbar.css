@@ -1,0 +1,153 @@
+:root {
+    --primary: #6366f1;
+    --background: #ffffff;
+    --foreground: #1f2937;
+    --foreground-muted: rgba(255, 255, 255, 0.7);
+    --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+/* Navbar base */
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.3s ease;
+    padding: 1.25rem 0;
+    background-color: #1B1C20;
+}
+
+nav.scrolled {
+    padding: 0.75rem 0;
+    background-color: #1B1C20;
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-xs);
+}
+
+.container {
+    margin: 0 0;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-title span {
+    color: white;
+}
+
+/* Hamburger */
+.nav-toggle {
+    height: 45px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    cursor: pointer;
+    z-index: 120;
+}
+
+.nav-toggle div {
+    background-color: white;
+    width: 35px;
+    height: 4px;
+    margin-top: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.open .top {
+    transform: rotate(-45deg);
+    margin-top: 14px;
+}
+
+.nav-toggle.open .meat {
+    transform: rotate(45deg);
+    margin-top: -4px;
+}
+
+.nav-toggle.open .bottom {
+    transform: scale(0);
+}
+
+/* Mobile nav menu (hidden by default) */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #1B1C20;
+    z-index: 110;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* When menu is open */
+.nav-links.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-links a {
+    font: 700 28px 'Oswald', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links a:hover {
+    background-color: white;
+    color: #1B1C20;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+        height: auto;
+        width: auto;
+        background: none;
+        padding: 0;
+        opacity: 1 !important;
+        pointer-events: auto;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        color: white;
+    }
+
+    .nav-links a:hover {
+        background: none;
+        color: var(--primary);
+    }
+}

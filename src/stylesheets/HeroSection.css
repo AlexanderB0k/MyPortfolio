@@ -1,0 +1,196 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #1b1c20;
+}
+
+.hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+}
+
+/* Image section */
+.hero-image-section {
+    position: relative;
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Full screen lines behind image */
+.hero-image-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-line {
+    position: absolute;
+    height: 10px;
+    border-radius: 999px;
+    background: white;
+    opacity: 1;
+    animation: floatLeftRight 12s ease-in-out infinite;
+}
+
+/* Line 1: from left, 20% width */
+.hero-line:nth-child(1) {
+    top: 20%;
+    left: 0;
+    width: 20%;
+    background-color: green;
+    animation-delay: 2s;
+}
+
+/* Line 2: from right, 50% width */
+.hero-line:nth-child(2) {
+    top: 30%;
+    right: 0;
+    width: 50%;
+    background-color: blue;
+    animation-direction: reverse;
+}
+
+/* Line 3: from left, starts at 70%, 20% width */
+.hero-line:nth-child(3) {
+    top: 75%;
+    left: 30%;
+    width: 60%;
+    background-color: green;
+    animation-delay: 1s;
+}
+
+/* Line 3: from left, starts at 70%, 20% width */
+.hero-line:nth-child(4) {
+    top: 85%;
+    left: 5%;
+    width: 50%;
+    background-color: blue;
+    animation-delay: 4s;
+    animation-direction: reverse;
+}
+
+@keyframes floatLeftRight {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(60px);
+        /* Adjust for subtle movement */
+    }
+}
+
+
+/* Image wrapper and image */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+/* Text section */
+.hero-text-section {
+    flex: 0 0 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+    flex-direction: column;
+}
+
+/* Typing effect */
+.typewriter h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    animation:
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: white;
+    }
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(to right, #6366f1, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Subtext */
+.hero-subtext {
+    font: 1.5em sans-serif;
+    color: white;
+    margin: 0;
+    white-space: wrap;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image-section,
+    .hero-text-section {
+        flex: 0 0 100%;
+    }
+
+    .typewriter h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,30 @@
+/* Apply full height and basic background/text styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #ffffff; /* Light mode background */
+  color: #000000;            /* Light mode text */
+  font-family: Arial, sans-serif;
+}
+
+
+/* Layout wrapper */
+.home-container {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* Main content area placeholder */
+.main-content {
+  padding: 40px 24px;
+}
+
+/* Footer placeholder */
+.footer {
+  padding: 24px;
+  text-align: center;
+  background-color: #eeeeee;
+}
